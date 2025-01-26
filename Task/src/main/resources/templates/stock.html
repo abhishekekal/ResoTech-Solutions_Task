@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Stock Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media (max-width: 600px) {
+            th, td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Information</h1>
+
+    <!-- Table to display stock data -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Symbol</th>
+                <th>Current Price</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>History</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through stockList and display each stock in a row -->
+            <tr th:each="stock : ${stockList}">
+                <td th:text="${stock.id}"></td>
+                <td th:text="${stock.symbol}"></td>
+                <td th:text="${stock.current_Price}"></td>
+                <td th:text="${stock.open}"></td>
+                <td th:text="${stock.close}"></td>
+                <td th:text="${stock.history}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
